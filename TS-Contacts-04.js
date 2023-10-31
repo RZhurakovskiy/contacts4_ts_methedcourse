@@ -1,4 +1,5 @@
-var persons = [
+"use strict";
+const persons = [
     {
         type: 'admin',
         name: 'Иван Петров',
@@ -18,21 +19,21 @@ var persons = [
         role: 'Администратор'
     }
 ];
-var isAdmin = function (person) {
+const isAdmin = (person) => {
     return person.type === 'admin';
 };
-var isUser = function (person) {
+const isUser = (person) => {
     return person.type === 'user';
 };
-var logPerson = function (person) {
-    var information = '';
+const logPerson = (person) => {
+    let information = '';
     if (isAdmin(person)) {
         information = person.role;
     }
     if (isUser(person)) {
         information = person.group;
     }
-    console.log(" - ".concat(person.name, ", ").concat(person.age, ", ").concat(information));
+    console.log(` - ${person.name}, ${person.age}, ${information}`);
 };
 console.log('Admins:');
 persons.filter(isAdmin).forEach(logPerson);
